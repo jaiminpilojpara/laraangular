@@ -21,7 +21,7 @@ class RegistrationController extends Controller
         $data['first_name'] = $inputData['first_name'];
         $data['last_name'] = $inputData['last_name'];
         $data['email'] = $inputData['email'];
-        $data['password'] = $inputData['password'];
+        $data['password'] =  bcrypt($inputData['password']);
 
         $saveUser = $this->useObj->create($data);
 
