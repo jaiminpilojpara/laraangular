@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix'=>'api'], function (){
-    Route::post('login','LoginController@logincheck');
-    Route::post('logout', 'LoginController@logout');
-});
+    Route::post('register', 'RegistrationController@Register');
+	Route::post('login', 'LoginController@LoginCheck');
+	Route::post('logout', 'LoginController@Logout');
+    Route::post('home', 'HomeController@logout');
+});	

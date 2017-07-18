@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password',
     ];
 
     /**
@@ -26,4 +27,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getUserDetailByEmail($email) {
+
+        $data = DB::table('users')->where(['email'=>$email,'deleted'=>1])->first();
+
+        return $data;
+    }
+
+    public function checkUserExist($id) {
+        $data = DB::table('users')->where(['id'=>$id,'deleted'=>1])->first();
+        if(count($data) > 0) {
+           return true;
+        } else {
+           return false;
+        }
+    }
 }
