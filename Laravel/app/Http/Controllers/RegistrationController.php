@@ -14,7 +14,6 @@ class RegistrationController extends Controller
     }
 
     function Register(){
-
         $inputData = Input::all();
         $data = [];
         $response = [];

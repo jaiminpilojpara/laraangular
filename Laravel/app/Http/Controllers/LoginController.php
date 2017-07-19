@@ -64,10 +64,12 @@ class LoginController extends Controller
             $response['status'] = 1;
             $response['data'] = $data;
             $response['message'] = "suceessfully login..!";
+            return response()->json($response, 200);  
         } else {
             $response['message'] = "Invalid email or password";
+            return response()->json($response, 403);  
         }
 
-        return response()->json($response);  
+        
     }
 }

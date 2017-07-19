@@ -12,8 +12,8 @@ import { HttpModule } from '@angular/http';
 
 
 import { RegistrationService } from './registration.service';
-
-
+import { LoginService } from './login.service';
+    
 const appRoutes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
@@ -37,7 +37,10 @@ const appRoutes: Routes = [
     )
     // other imports here
   ],
-  providers: [RegistrationService],
+  providers: [
+    RegistrationService,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
