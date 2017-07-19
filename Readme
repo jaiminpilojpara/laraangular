@@ -6,7 +6,7 @@ Angular
   
   --> npm install --save bootstrap
 
-  after inside angular-cli.json (inside project root folder) find styles and add a bootstrap css like this:
+  after run command put below code inside angular-cli.json (inside project root folder) find styles and add a bootstrap css like this:
 
   "styles": [
      "../node_modules/bootstrap/dist/css/bootstrap.min.css",
