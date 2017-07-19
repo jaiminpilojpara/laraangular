@@ -1,3 +1,19 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/home" routerLinkActive="active">Laravel-Angular</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a routerLink="/registration" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Registration</a>
+        </li>
+        <li class="active">
+            <a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+
 <div class="container">
         <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -11,11 +27,11 @@
 				</div>
 
                 <div class="form-group">
-                  <input type="email" class="form-control input-sm" placeholder="Email Address" [(ngModel)] ="email">
+                  <input type="email" class="form-control input-sm" placeholder="Email Address" [(ngModel)] ="email" required autofocus>
                 </div>
 
                 <div class="form-group">
-                  <input type="password" class="form-control input-sm" placeholder="Password" [(ngModel)] ="password">
+                  <input type="password" class="form-control input-sm" placeholder="Password" [(ngModel)] ="password" required>
                 </div>
 
                 <button class="btn btn-info btn-block" (click) = "Login(email, password)" >Login</button>

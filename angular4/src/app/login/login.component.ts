@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../login.service';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -8,26 +10,31 @@ import { LoginService } from './../login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private LoginService: LoginService) { }
+  constructor(private LoginService: LoginService, private router: Router) {
+  	if(localStorage.getItem('userId') != null && localStorage.getItem('userToken') != null && localStorage.getItem('userName') != null){
+		this.router.navigateByUrl('/home');
+  	}
+  }
 
   ngOnInit() {
   }
   message = '';
-  statuscode = 0;
+  response = [];
   Login(email, password){
   	// console.log(email, password);
   	this.LoginService.Login(email, password).subscribe(res=>{
-  	    	this.statuscode = parseInt(JSON.stringify(res.status))
-	  	    if(this.statuscode == 200){		
-  	    		this.message = 'User Login successfully';
-  	    		this.statuscode = 0;
+  	    	this.response = JSON.parse(res['_body'])
+
+	  	    if(this.response['status'] == '1'){		
+				localStorage.setItem("userId",this.response['id'])
+				localStorage.setItem("userToken",this.response['loginToken'])
+				localStorage.setItem("userName",this.response['name'])
+				this.router.navigateByUrl('/home');
   	    	}
-  	    	else{
+  	    	else if(this.response['status'] == '0'){
   	    		this.message = 'Login Failed Please Try Again';
   	    	}
-  	    }, error => {
-                	    		this.message = 'Login Failed Please Try Again';
-          });
+  	    });
   }
 
 }

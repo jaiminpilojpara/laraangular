@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from './../registration.service';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 
 @Component({
   selector: 'app-registration',
@@ -8,8 +10,11 @@ import { RegistrationService } from './../registration.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private RegistrationService: RegistrationService) {
-   }
+  constructor(private RegistrationService: RegistrationService, private router: Router) {
+  	if(localStorage.getItem('userId') != null && localStorage.getItem('userToken') != null && localStorage.getItem('userName') != null){
+		this.router.navigateByUrl('/home');
+  	}
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './../login.service';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private LoginService: LoginService,private router: Router) { 
+  	if(localStorage.getItem('userId') == null && localStorage.getItem('userToken') == null && localStorage.getItem('userName') == null){
+		this.router.navigateByUrl('/login');
+  	}
+  }
 
   ngOnInit() {
   }
+
+	name = "Welcome Mr. " + localStorage.getItem("userName")
+	message = name;
+
+	logout(){
+		this.LoginService.Logout(localStorage.getItem("userId")).subscribe();
+		localStorage.clear();
+	}
+
 
 }

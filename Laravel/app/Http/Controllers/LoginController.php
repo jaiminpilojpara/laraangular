@@ -58,16 +58,18 @@ class LoginController extends Controller
             $loginDetail['login_token'] = base64_encode($postData['email'].':'.$postData['password']);
             $userLoginDetails = $objUserLoginToken->saveUserLoginDetail($loginDetail);
             $data = [];
-            $data['loginToken'] = base64_encode($postData['email'].':'.$postData['password']);
-            $data['name'] = $userDetail->first_name ." ". $userDetail->last_name;
-            $data['id'] = $userDetail->id;
+            $response['loginToken'] = base64_encode($postData['email'].':'.$postData['password']);
+            $response['name'] = $userDetail->first_name ." ". $userDetail->last_name;
+            $response['id'] = $userDetail->id;
             $response['status'] = 1;
-            $response['data'] = $data;
+            // $response['data'] = $data;
             $response['message'] = "suceessfully login..!";
-            return response()->json($response, 200);  
+            return response()->json($response);  
         } else {
+                        $response['status'] = 0;
+
             $response['message'] = "Invalid email or password";
-            return response()->json($response, 403);  
+            return response()->json($response);  
         }
 
         

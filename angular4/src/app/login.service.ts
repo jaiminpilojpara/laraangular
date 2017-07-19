@@ -7,25 +7,35 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LoginService 
 {
-  constructor (
-    private http: Http
-  ) {}
+    constructor (private http: Http) {
+        
+    }
 
-  Login(email, password) {
-      var headers = new Headers();
-
-      headers.append('Content-Type', 'application/json');
-      const body = {
+    Login(email, password) {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        const body = {
                       email: email,
                       password: password
                    }
 
-      return this.http
+        return this.http
         .post('http://local.laraangular.com/api/login',
-          body, {
-            headers: headers
-          })
-  }
+            body, {
+                headers: headers
+            })
+    }
+
+    Logout(id){
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        const body = {id: id}
+        return this.http
+        .post('http://local.laraangular.com/api/logout',
+            body, {
+                headers: headers
+            })
+    }
 
 
 }
