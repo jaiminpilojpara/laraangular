@@ -71,7 +71,5 @@ class LoginController extends Controller
             $response['message'] = "Invalid email or password";
             return response()->json($response);  
         }
-
-        
     }
 }

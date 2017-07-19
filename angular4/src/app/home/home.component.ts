@@ -4,28 +4,25 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+	selector: 'app-home',
+	templateUrl: './home.component.html',
+	styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private LoginService: LoginService,private router: Router) { 
-  	if(localStorage.getItem('userId') == null && localStorage.getItem('userToken') == null && localStorage.getItem('userName') == null){
-		this.router.navigateByUrl('/login');
-  	}
-  }
+	constructor(private LoginService: LoginService,private router: Router) { 
+		if(localStorage.getItem('userId') == null && localStorage.getItem('userToken') == null && localStorage.getItem('userName') == null){
+			this.router.navigateByUrl('/login');
+		}
+	}
 
-  ngOnInit() {
-  }
+	ngOnInit() {}
 
 	name = "Welcome Mr. " + localStorage.getItem("userName")
-	message = name;
+	message = name; //You can Change Accordingly
 
 	logout(){
 		this.LoginService.Logout(localStorage.getItem("userId")).subscribe();
 		localStorage.clear();
 	}
-
-
 }

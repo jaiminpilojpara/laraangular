@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 export class LoginService 
 {
     constructor (private http: Http) {
-        
+
     }
 
     Login(email, password) {
@@ -36,6 +36,4 @@ export class LoginService
                 headers: headers
             })
     }
-
-
 }
