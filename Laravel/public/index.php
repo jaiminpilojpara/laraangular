@@ -18,6 +18,8 @@
 | loading any of our classes later on. It feels great to relax.
 |
 */
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Content-Type, x-xsrf-token');
 
 require __DIR__.'/../bootstrap/autoload.php';
 

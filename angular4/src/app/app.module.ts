@@ -8,6 +8,11 @@ import { HomeComponent } from './home/home.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+
+import { RegistrationService } from './registration.service';
+
 
 const appRoutes: Routes = [
   { path: 'registration', component: RegistrationComponent },
@@ -25,13 +30,14 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot(
       appRoutes
       // { enableTracing: true } // <-- debugging purposes only
     )
     // other imports here
   ],
-  providers: [],
+  providers: [RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
