@@ -26,20 +26,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input formControlName="email" id="email" class="form-control input-sm" placeholder="Email Address" />
-                            <control-messages [control]="loginForm.controls.email"></control-messages>
+                            <md-input-container class="example-full-width">
+                                <input mdInput formControlName="email" id="email" placeholder="Email Address">
+                            </md-input-container>
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" formControlName="password" id="password" class="form-control input-sm" placeholder="Password" />
-                            <control-messages [control]="loginForm.controls.password"></control-messages>
+                            <md-input-container class="example-full-width">
+                                <input mdInput type="password" formControlName="password" id="password" placeholder="Password">
+                            </md-input-container>
                         </div>
 
-                        <button class="btn btn-info btn-block" [disabled]="!loginForm.valid" (click) = "Login()">Login</button>
-
-                        <h3 style="text-align: center;">{{message}}</h3>
+                        <button md-raised-button class="btn-info btn-block" [disabled]="!loginForm.valid" (click) = "Login()">Login</button>
+                        <md-progress-bar mode="indeterminate"></md-progress-bar>
 
                     </form>
                 </div>

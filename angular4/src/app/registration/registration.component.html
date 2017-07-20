@@ -28,35 +28,37 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="first_name">First Name</label>
-                                    <input formControlName="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" autofocus />
+                                    <md-input-container class="example-full-width">
+                                        <input mdInput formControlName="first_name" id="first_name" placeholder="First Name">
+                                    </md-input-container>
                                     <control-messages [control]="registrationForm.controls.first_name"></control-messages>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="last_name">Last Name</label>
-                                    <input formControlName="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name" />
+                                    <md-input-container class="example-full-width">
+                                        <input mdInput formControlName="last_name" id="last_name" placeholder="Last Name">
+                                    </md-input-container>
                                     <control-messages [control]="registrationForm.controls.last_name"></control-messages>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input formControlName="email" id="email" class="form-control input-sm" placeholder="Email Address" />
+                            <md-input-container class="example-full-width">
+                                <input mdInput formControlName="email" id="email" placeholder="Email Address">
+                            </md-input-container>
                             <control-messages [control]="registrationForm.controls.email"></control-messages>
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" formControlName="password" id="password" class="form-control input-sm" placeholder="Password" />
+                            <md-input-container class="example-full-width">
+                                <input mdInput type="password" formControlName="password" id="password" placeholder="Password">
+                            </md-input-container>
                             <control-messages [control]="registrationForm.controls.password"></control-messages>
                         </div>
 
-                        <button class="btn btn-info btn-block" [disabled]="!registrationForm.valid" (click) = "Register()">Register</button>
-
-                        <h3 style="text-align: center;">{{message}}</h3>
+                        <button md-raised-button class="btn-info btn-block" [disabled]="!registrationForm.valid" (click) = "Register()">Register</button>
 
                     </form>
                 </div>

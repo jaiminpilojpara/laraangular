@@ -3,6 +3,8 @@ import { LoginService } from 'app/Services/login.service';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidationService } from 'app/Services/validation.service';
+import { MdSnackBar } from '@angular/material';
+
 
 @Component({
 	selector: 'app-login',
@@ -12,7 +14,7 @@ import { ValidationService } from 'app/Services/validation.service';
 export class LoginComponent implements OnInit {
 	loginForm: any;
 
-	constructor(private LoginService: LoginService, private router: Router, private formBuilder: FormBuilder) {
+	constructor(private LoginService: LoginService, private router: Router, private formBuilder: FormBuilder, public snackBar: MdSnackBar) {
 		if(localStorage.getItem('userId') != null && localStorage.getItem('userToken') != null && localStorage.getItem('userName') != null){
 			this.router.navigateByUrl('/home');
 		}
@@ -38,7 +40,8 @@ export class LoginComponent implements OnInit {
 					this.router.navigateByUrl('/home');
 				}
 				else if(this.response['status'] == '0'){
-					this.message = 'Login Failed Please Try Again';
+					this.snackBar.open('Login Failed Please Try Again', null , {duration: 3000,});
+					// this.message = 'Login Failed Please Try Again';
 				}
 			});
 		}
