@@ -14,6 +14,7 @@ Angular
   ],
 
 Angular Material
-  Run this command for Angular Material
+  Run following command for Angular Material
   
-  --> npm install --save @angular/material @angular/animations @angular/cdk
+  --> npm install --save @angular/material @angular/animations 
+  --> npm install --save @angular/material @angular/cdk
