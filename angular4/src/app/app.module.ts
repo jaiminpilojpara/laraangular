@@ -7,40 +7,47 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 
-import { RegistrationService } from './registration.service';
-import { LoginService } from './login.service';
+import { RegistrationService } from 'app/Services/registration.service';
+import { LoginService } from 'app/Services/login.service';
+
+import { ControlMessagesComponent } from './control-messages.component';
+import { ValidationService } from 'app/Services/validation.service';
+
     
 const appRoutes: Routes = [
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent }
+    { path: 'registration', component: RegistrationComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegistrationComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(
-      appRoutes
-      // { enableTracing: true } // <-- debugging purposes only
-    )
-    // other imports here
-  ],
-  providers: [
-    RegistrationService,
-    LoginService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        RegistrationComponent,
+        HomeComponent,
+        ControlMessagesComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        RouterModule.forRoot(
+        appRoutes
+            // { enableTracing: true } // <-- debugging purposes only
+        )
+            // other imports here
+    ],
+    providers: [
+        RegistrationService,
+        LoginService,
+        ValidationService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
