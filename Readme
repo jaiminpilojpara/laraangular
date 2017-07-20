@@ -12,3 +12,9 @@ Angular
      "../node_modules/bootstrap/dist/css/bootstrap.min.css",
      "styles.css"
   ],
+
+Angular Material
+  Run following command for Angular Material
+  
+  --> npm install --save @angular/material @angular/animations 
+  --> npm install --save @angular/material @angular/cdk
