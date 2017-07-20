@@ -41,17 +41,14 @@ export class RegistrationComponent implements OnInit {
 				
 				if(this.statuscode == 200){	
 					this.router.navigateByUrl('/login');
-					this.snackBar.open('User Registered successfully Now enter your credetials to Login', null , {duration: 5000,});
+					this.snackBar.open('You have Registered successfully Now enter your credetials to Login', null , {duration: 5000,});
 					// this.message = 'User Registered successfully';
 					this.statuscode = 0;
 				}
 				else{
-					this.snackBar.open('User Registered Failed Please Try Again', null , {duration: 3000,});
+					this.snackBar.open('Your Registeration Failed Please Try Again', null , {duration: 3000,});
 					// this.message = 'User Registered Failed Please Try Again';
 				}
-			}, 
-			error => {
-				this.snackBar.open('User Registered Failed Please Try Again', null , {duration: 3000,});
 			});
 		}
 	}
