@@ -2,12 +2,13 @@ Laravel
   API URL : http://local.laraangular.com/
 
 Angular
-  Run this command for Bootstrap
+  Run this command for Node Modules
+  --> npm install
   
+  Run this command for Bootstrap
   --> npm install --save bootstrap
 
 Angular Material
   Run following command for Angular Material
-  
   --> npm install --save @angular/material @angular/animations 
   --> npm install --save @angular/material @angular/cdk
