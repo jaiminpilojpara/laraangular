@@ -41,8 +41,10 @@ export class LoginComponent implements OnInit {
 				}
 				else if(this.response['status'] == '0'){
 					this.snackBar.open('Login Failed Please Try Again', null , {duration: 3000,});
-					// this.message = 'Login Failed Please Try Again';
 				}
+			}, 
+			error=>{
+				this.snackBar.open('Server not Responding Please try again', null , {duration: 4000,});
 			});
 		}
 	}

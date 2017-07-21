@@ -23,9 +23,7 @@ export class RegistrationComponent implements OnInit {
 			'last_name': ['', Validators.required],
 			'email': ['', [Validators.required, ValidationService.emailValidator]],
 			'password': ['', [Validators.required, ValidationService.passwordValidator]]
-		});
-		
-		// console.log(this.registrationForm);
+		});		
 	}
 
 	ngOnInit() {}
@@ -34,7 +32,6 @@ export class RegistrationComponent implements OnInit {
 	message = '';
 
 	Register(){
-		// console.log(this.registrationForm.value.first_name, this.registrationForm.value.last_name, this.registrationForm.value.email, this.registrationForm.value.password);
 		if(this.registrationForm.dirty && this.registrationForm.valid){
 			this.RegistrationService.AddRegisterUser(this.registrationForm.value.first_name, this.registrationForm.value.last_name, this.registrationForm.value.email, this.registrationForm.value.password).subscribe(res=>{
 				this.statuscode = parseInt(JSON.stringify(res.status))
@@ -42,14 +39,16 @@ export class RegistrationComponent implements OnInit {
 				if(this.statuscode == 200){	
 					this.router.navigateByUrl('/login');
 					this.snackBar.open('You have Registered successfully Now enter your credetials to Login', null , {duration: 5000,});
-					// this.message = 'User Registered successfully';
 					this.statuscode = 0;
 				}
 				else{
 					this.snackBar.open('Your Registeration Failed Please Try Again', null , {duration: 3000,});
-					// this.message = 'User Registered Failed Please Try Again';
 				}
+			}, 
+			error=>{
+				this.snackBar.open('Server not Responding Please try again', null , {duration: 4000,});
 			});
 		}
 	}
 }
+
