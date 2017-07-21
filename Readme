@@ -8,7 +8,6 @@ Angular
     Run this command for Bootstrap
     --> npm install --save bootstrap
 
-Angular Material
     Run following command for Angular Material
     --> npm install --save @angular/material @angular/animations 
     --> npm install --save @angular/material @angular/cdk
